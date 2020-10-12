@@ -2,17 +2,16 @@ package com.example.cps731lab05sec01alisonder;
 
 import android.app.Activity;
 import android.os.Bundle;
-
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-
-import androidx.fragment.app.Fragment;
-
+import android.widget.ImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.cps731lab05sec01alisonder.dummy.DummyContent;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * A fragment representing a single Item detail screen.
@@ -63,12 +62,13 @@ public class ItemDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.item_detail, container, false);
-
+        ImageView iv = ((ImageView) rootView.findViewById(R.id.item_image));
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.details);
+            iv.setImageResource(mItem.img);
         }
-
         return rootView;
     }
+
 }
